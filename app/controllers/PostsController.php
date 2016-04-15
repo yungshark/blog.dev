@@ -2,6 +2,11 @@
 
 class PostsController extends \BaseController {
 
+	public function __construct(){
+		$this->beforeFilter('auth', array('except' => array('index', 'show')));
+		$this->beforeFilter('role_type', array('except' => array('index', 'show')));
+	}
+
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -9,11 +14,9 @@ class PostsController extends \BaseController {
 	 */
 	public function index()
 	{
-		$per_page = Inptu::get('limit');
-		$posts = Post::paginate();
-		return View::make('posts.index' , [
-			'posts' => Post::all()
-			]);
+		$posts = Post::paginate(4);
+        // generally have same name, if KEY is posts... then VAR is $posts...
+        return View::make('posts.index')->with('posts', $posts);
 	}
 
 
@@ -35,7 +38,6 @@ class PostsController extends \BaseController {
 	 */
 	public function store()
 	{
-		$post = new Post();
 
 		$this->validateAndSave($post);
 		
@@ -50,7 +52,11 @@ class PostsController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		return 'showing show';
+		return View::make('posts.show', [
+        // send data into the view
+        // show a single page
+        'post' => Post::find($id),
+        ]);
 	}
 
 
@@ -62,9 +68,9 @@ class PostsController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		$post = Post::find($id)
-
-		return View::make('posts.edit')->with('post', $post);
+		// goes to edit file
+        $post = post::fine($id);
+        return View::make('posts.edit')->make();
 	}
 
 
@@ -101,16 +107,19 @@ class PostsController extends \BaseController {
 	public function validateAndSave($id)
 	{
 		$validator = Validator::make(Input::all(), Post::$rules);
-		if ($validator->fails()){
-			Session::flash('error-message', 'Validation has failed!')
-			return Redirect::back()->withInput()->withErrors($validator);
-		}
-			$post->title = Input::get('title');
-			$post->body = Input::get('body');
-			$post->save();
-			Session::flash('sucess-message', 'Validation has passed!')
-		
-		return Redirect::action('PostController@index');
+        // attempt validation
+        if ($validator->fails()) {
+            // validation failed, redirect to the post create page with validation errors and old inputs
+            return Redirect::back()->withInput()->withErrors($validator);
+        } else {
+            $post = new Post();
+            $post->user_id = User::first()->id;
+            $post->title = input::get('title');
+            $post->body = input::get('body');
+            $post->save();
+        }
+        Session::flash('successMessage', 'The post was successfully added!');
+        return Redirect::action('PostsController@index');
 	}
 
 

@@ -11,10 +11,14 @@
 |
 */
 
-// Route::get('/', function()
-// {
-// 	return View::make('hello');
-// });
+Route::get('/sayhello/{name}', function($name)
+{
+	if ($name == "Logan") {
+		return Redirect::to('/');
+	} else {
+		return "Hello, $name";
+	}
+});
 
 Route::get('/', 'HomeController@showWelcome');
 
@@ -22,7 +26,9 @@ Route::get('/portfolio', 'HomeController@showPortfolio');
 
 Route::get('/resume', 'HomeController@showResume');
 
-Route::get('/rolldice/{guess}', 'HomeController@rolldice');
+Route::get('/rolldice/{guess}', 'HomeController@showRollDice');
+
+Route::get('/simplesimon', 'HomeController@showSimpleSimon');
 
 Route::get('/posts', 'PostsController@index');
 
@@ -39,5 +45,3 @@ Route::put('/posts/{post}','PostsController@update');
 Route::delete('/posts/{post}','PostsController@destroy');
 
 Route::resource('posts', 'PostsController');
-
-

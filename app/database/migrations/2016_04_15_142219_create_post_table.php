@@ -4,7 +4,6 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 class CreatePostTable extends Migration {
-
 	/**
 	 * Run the migrations.
 	 *
@@ -12,17 +11,14 @@ class CreatePostTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('posts', function(Blueprint $table){
+		Schema::create('posts', function($table)
+		{
 			$table->increments('id');
 			$table->string('title');
-			$table->text('content');
-			$table->string('image');
-			$table->integer('user_id')->unsigned();
-			$table->foreign('user_id')->references('id')->on('users');
+			$table->text('body');
 			$table->timestamps();
 		});
 	}
-
 	/**
 	 * Reverse the migrations.
 	 *
@@ -32,5 +28,5 @@ class CreatePostTable extends Migration {
 	{
 		Schema::drop('posts');
 	}
-
 }
+// <!-- php artisan migrate:make create_posts_table --create=posts -->
