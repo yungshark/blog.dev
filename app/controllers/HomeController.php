@@ -27,6 +27,9 @@ class HomeController extends BaseController {
 	public function showSimpleSimon(){
 		return View::make('simplesimon');
 	}
+	public function showCalculator(){
+		return View::make('calculator');
+	}
 	public function showRollDice($guess){
 		$random = mt_rand(1,6);
 		$data = [
@@ -38,6 +41,9 @@ class HomeController extends BaseController {
 	public function randomGuess(){
 		$guess = mt_rand(1,6);
 		return Redirect::action('HomeController@showRollDice', $guess);
+	}
+	public function showPosts(){
+		return View::make('posts');
 	}
 
 }

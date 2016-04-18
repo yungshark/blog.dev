@@ -5,7 +5,9 @@ class Post extends Eloquent{
         'body' => 'required|max:10000'
     ];
     protected $table = 'posts';
-    // public function getCreatedAtAttribute($value) {
-    // 	$value: "2016"
-    // }
+
+public function user() 
+    {
+    	return $this->belongsTo('user');
+    }
 }

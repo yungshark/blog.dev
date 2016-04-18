@@ -30,6 +30,8 @@ Route::get('/rolldice/{guess}', 'HomeController@showRollDice');
 
 Route::get('/simplesimon', 'HomeController@showSimpleSimon');
 
+Route::get('/calculator', 'HomeController@showCalculator');
+
 Route::get('/posts', 'PostsController@index');
 
 Route::get('/posts/create','PostsController@create');
@@ -45,3 +47,16 @@ Route::put('/posts/{post}','PostsController@update');
 Route::delete('/posts/{post}','PostsController@destroy');
 
 Route::resource('posts', 'PostsController');
+
+Route::get('/login', 'UserController@showLogin');
+
+Route::get('/logout', 'UserController@showlogout');
+
+Route::post('/login', 'UserController@doLogin');
+
+Route::get('/query-test', function(){
+	$posts = Post::where('title', '=', 'Hello World!')->get();
+	foreach ($posts as $post) {
+		echo $post->title . "<br>";
+	}
+});

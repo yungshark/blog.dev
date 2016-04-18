@@ -1,0 +1,7 @@
+.fix{
+	vertical-align: text-bottom;
+    position:fixed;
+    float:right;
+    bottom:0px;
+    left:0%;
+    }

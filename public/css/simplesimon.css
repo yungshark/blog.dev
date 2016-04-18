@@ -1,0 +1,63 @@
+
+main {
+	width: 410px;
+}
+/*border radius - top left, top right, bottom right, bottom left*/
+div{
+	margin: 2px;
+	width:180px;
+	height:180px;
+	padding:1px;
+	float:left;
+	margin:10px;
+	opacity: .4;
+}
+
+.green{
+	background-color: green;
+	border-radius:200px 1px 1px 1px;
+		
+}
+
+.red {
+	background-color: red;
+	border-radius:1px 200px 1px 1px;
+		
+}
+
+.blue{
+	background-color:blue;
+	border-radius:1px 1px 200px 1px;
+		
+}
+
+.yellow{
+	background-color: yellow;
+	border-radius:1px 1px 1px 200px;
+		
+}
+
+h1{
+	color:pink;
+
+}
+
+.game-info{
+	color: teal;
+	opacity:;
+}
+
+p[data-action="lose"]{
+	display:none;
+}
+
+.active {
+		opacity:1 !important;
+}
+.notActive {
+		opacity: .4;
+}
+
+.hoverable:hover{
+	cursor:pointer;
+}
