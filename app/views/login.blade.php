@@ -1,6 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
+	<div class="blog">
     {{ Form::open(array('action' => 'UserController@doLogin', 'class' => 'form-signin')) }}
     	@if (Session::has('errorMessage'))
 			<div class="alert">{{{ Session::get('errorMessage') }}}</div>
@@ -18,5 +19,6 @@
 			<br>
 				{{ Form::submit('Sign in', array('class' => 'btn-log')); }}
 	{{ Form::close() }}
+</div>
 
 @stop

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.2.1/foundation.min.css">
-    <link rel="stylesheet" type="text/css" href="/css/myStyle.css">
+    <link rel="stylesheet" type="text/css" href="/css/blog.css">
 
 	@yield('top-script')
 
