@@ -32,6 +32,8 @@ Route::get('/simplesimon', 'HomeController@showSimpleSimon');
 
 Route::get('/calculator', 'HomeController@showCalculator');
 
+Route::get('/whackamole', 'HomeController@showWhackamole');
+
 Route::get('/posts', 'PostsController@index');
 
 Route::get('/posts/create','PostsController@create');

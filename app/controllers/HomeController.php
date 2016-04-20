@@ -30,6 +30,9 @@ class HomeController extends BaseController {
 	public function showCalculator(){
 		return View::make('calculator');
 	}
+	public function showWhackamole(){
+		return View::make('whackamole');
+	}
 	public function showRollDice($guess){
 		$random = mt_rand(1,6);
 		$data = [
