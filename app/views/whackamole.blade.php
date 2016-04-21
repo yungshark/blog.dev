@@ -9,6 +9,7 @@
 			body {
 				background-image:url('/img/grass.png');
 				vertical-align: text-bottom;
+				background-repeat:no-repeat;
 
 			}
 
