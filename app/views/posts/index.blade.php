@@ -16,7 +16,7 @@
     @foreach($posts as $post)
         <!-- <h2> {{{ $post->title }}}</h2> -->
         <div class="post">
-            <h2 class="post-title"><a href="{{{ action('PostsController@show', ['post' => $post->id ])}}}"> {{{ $post->title }}}</a></h2>
+            <h2 class="title"><a href="{{{ action('PostsController@show', ['post' => $post->id ])}}}"> {{{ $post->title }}}</a></h2>
             <br>{{ $post->created_at->format('l, F jS Y @ h:i A'); }}</br>
             <p class="date"> Written By: {{{ $post->user->first_name . " " . $post->user->last_name }}} </p>
         </div>

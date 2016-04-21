@@ -24,6 +24,8 @@ Route::get('/', 'HomeController@showWelcome');
 
 Route::get('/portfolio', 'HomeController@showPortfolio');
 
+Route::get('/menu', 'HomeController@showMenu');
+
 Route::get('/resume', 'HomeController@showResume');
 
 Route::get('/rolldice/{guess}', 'HomeController@showRollDice');

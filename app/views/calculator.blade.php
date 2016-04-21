@@ -44,7 +44,7 @@
 			well, it was as i was building the calculator. i realized that to get it to work was a bigger dream than i thought.
 			<br>
 
-<img src='/img/bottom-banner.png' class="fix">
+<img src='/img/calculator-banner.png' class="fix">
 </center></align>
 <script src='/js/calculator.js'></script>
 </body>
